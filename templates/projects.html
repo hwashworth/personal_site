@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projects</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>My Projects</h1>
+    <ul>
+        {% for p in projects %}
+        <li>
+            <strong>{{ p.name }}</strong> — {{ p.desc }}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back Home</a>
+</body>
+</html>
