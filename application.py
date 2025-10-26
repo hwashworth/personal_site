@@ -12,7 +12,7 @@ projects = [
 
 @application.route("/")
 def home():
-    return render_template("index.html", name="Hunter Ashworth", title="Cloud Operations & SRE Engineer")
+    return render_template("index.html", name="Hunter Ashworth", title="Product Development & Cloud Operations")
 
 @application.route("/projects")
 def project_list():
