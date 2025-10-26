@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Projects</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
-<body>
-    <h1>My Projects</h1>
-    <ul>
-        {% for p in projects %}
-        <li>
-            <strong>{{ p.name }}</strong> — {{ p.desc }}
-        </li>
-        {% endfor %}
-    </ul>
-    <a href="/">Back Home</a>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<section class="projects">
+  <h2 class="section-title">Projects</h2>
+  <div class="grid">
+    {% for p in projects %}
+    <a class="card" href="{{ p.url }}">
+      <div class="card-inner">
+        <h3 class="card-title">{{ p.title }}</h3>
+        <p class="card-sub">{{ p.subtitle }}</p>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

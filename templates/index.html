@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Hunter Ashworth | Portfolio</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
-<body>
-    <h1>Welcome to My Portfolio</h1>
-    <p>Here you’ll find Python projects showcasing Cloud, DevOps, and SRE skills.</p>
-    <a href="/projects">View Projects</a>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="hero-inner">
+    <h1>{{ name }}</h1>
+    <p class="lead">{{ title }}</p>
+    <p class="desc">I build reliable cloud systems and automation. Explore my projects or get in touch.</p>
+    <div class="hero-cta">
+      <a class="btn" href="/projects">View Projects</a>
+      <a class="btn ghost" href="/contact">Contact</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
