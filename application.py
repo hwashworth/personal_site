@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for
 
 application = Flask(__name__)
 
-# Example placeholder projects — replace with your real project entries.
 projects = [
     {"title": "Project Alpha", "subtitle": "CloudOps demo", "url": "#"},
     {"title": "Project Beta",  "subtitle": "K8s monitor",  "url": "#"},
