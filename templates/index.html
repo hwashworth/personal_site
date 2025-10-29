@@ -1,13 +1,47 @@
-{% extends "base.html" %}
-{% block content %}
-<section class="hero">
-  <div class="hero-inner">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-left">
+      <a class="brand" href="/"></a>
+    </div>
+  </nav>
+
+  <main id="content"><section class="hero">
+  <div class="title_and_description">
     <h1>{{ name }}</h1>
     <p class="lead">{{ title }}</p>
     <p class="desc">I build reliable cloud systems and automation. Explore my projects or get in touch.</p>
-    <div class="hero-cta">
-      <a class="proj" href="/projects">Projects</a>
+
+  <details class="accordion">
+    <summary>Projects</summary>
+    <div class="accordion-content">
+      <a class="proj">Project 1</a>
+      <a class="proj">Project 2</a>
     </div>
+  </details>
+
+  <details class="accordion">
+    <summary>About Me</summary>
+    <div class="accordion-content">
+      <p>I build reliable cloud systems and automation.</p>
+    </div>
+  </details>
+
+
+
   </div>
-</section>
-{% endblock %}
+  </section>
+  </main>
+
+  <footer class="footer">
+    <a class="cont">Update with links to contact</a>
+  </footer>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
