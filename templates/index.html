@@ -16,17 +16,21 @@
   <details class="accordion">
     <summary>Projects</summary>
     <div class="accordion-content">
-      <a class="proj">Project 1</a>
-      <a class="proj">Project 2</a>
-    </div>
-  </details>
 
-  <details class="accordion">
-    <summary>About Me</summary>
-    <div class="accordion-content">
-      <p>I build reliable cloud systems and automation.</p>
+        <div class="project-item">
+        <a href="https://hwashworth.com" class="proj-title" target="_blank" rel="noopener noreferrer">hwashworth.com (This Site)</a>
+        <p class="proj-desc">
+        This portfolio itself is a live project demonstrating a full CI/CD pipeline. It's a Python/Flask application deployed on AWS Elastic Beanstalk. Any <code>git push</code> to the main branch on GitHub automatically triggers a GitHub Actions workflow, which builds and deploys the new version. The custom domain is managed via Route 53, and the site is secured with HTTPS using an AWS Certificate.
+        </p>
+        </div>
+    <div class="project-item">
+      <a class="proj-title">Project 2</a>
+      <p class="proj-desc">
+        A description of your next awesome SRE project (like the Terraform or Observability one) will go here.
+      </p>
     </div>
-  </details>
+    </div>
+    </details>
 
   </div>
   </section>

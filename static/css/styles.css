@@ -29,6 +29,7 @@ body {
     transition: background .25s, color .25s;
 }
 
+
 /* Hero section */
 .hero {
     display: flex;
@@ -43,9 +44,13 @@ body {
 
 .hero h1 {
     font-size: 1em;
-    margin: 20px 0 20px;
+    margin-bottom: 3em;
     text-decoration: none;
     color: #7c7c7a;
+}
+
+.hero p {
+   margin-bottom: 3em;
 }
 
 .lead {
@@ -116,6 +121,44 @@ body {
     display: flex;
     gap: 10px;
     align-items: center;
+}
+
+/* Replaced .proj with a more structured project block */
+.project-item {
+  margin-bottom: 1.5em; /* Space between projects */
+  /* Remove last project's bottom margin */
+}
+
+.project-item:last-child {
+    margin-bottom: 0.5em;
+}
+
+.proj-title {
+  font-weight: bold;
+  color: var(--accent); /* Make the title pop */
+  text-decoration: none;
+  display: block; /* Make it block level */
+  margin-bottom: 0.25em;
+}
+
+.proj-title:hover {
+  text-decoration: underline;
+}
+
+.proj-desc {
+  margin: 0 0 0 1em; /* Reset default p margin and indent */
+  font-size: 0.95em;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Add styling for inline code */
+.proj-desc code {
+  color: var(--text);
+  background-color: #333;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
 }
 
 /* Footer */
