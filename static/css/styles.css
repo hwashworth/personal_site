@@ -1,62 +1,204 @@
-/* Variables declarations for colors in light theme */
-:root{
-    --bg:#ffffff; --text:#111827; --muted:#6b7280; --accent:#0f172a;
-}
-
-/* Variable overrides for colors in dark theme */
-[data-theme="dark"]{
-    --bg:#1f1f1f; --text:#e6eef8; --muted:#9aa6b2; --accent:#9ae6ff;
+:root {
+    --bg: #1f1f1f;
+    --text: #e6eef8;
+    --muted: #9aa6b2;
+    --accent: #9ae6ff;
 }
 
 /* Box sizing property set to border-box globally */
-*{box-sizing:border-box;text-align:left}
-
-/* Setting basic styles for html and body */
-html,body{height:100%}
-body{
-    /* Resetting margin, defining font family, and setting colors using variables */
-    box-sizing:border-box;padding:7em;max-width:60em;margin:0; font-family:IBM Plex Mono, monospace; font-size: 13px;
-    background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased;
-    /* Adding transition for smooth color change*/
-    transition:background .25s, color .25s;
+* {
+    box-sizing: border-box;
+    text-align: left;
 }
 
-/* Styling the navigation bar */
-.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;border-bottom:1px solid rgba(0,0,0,0.04)}
-.brand{font-weight:700;color:var(--text);text-decoration:none}
-.nav-right a{margin:0 8px;color:var(--muted);text-decoration:none}
-#theme-toggle{margin-left:12px;padding:6px;border-radius:6px;border:0;background:transparent;color:var(--muted);cursor:pointer}
+/* Setting basic styles for html and body */
+html, body {
+    height: 100%;
+}
 
-/* Styling the hero section */
-.hero{display:flex;padding:80px 16px}
-.hero-inner{max-width:920px}
-.hero h1{font-size:1em;margin:0 0 8px;text-decoration:none;color:#7c7c7a}
-.lead{margin:0 0 12px;color:var(--muted)}
-.desc{max-width:720px;margin:0 auto 20px;color:var(--muted)}
-.proj{display:inline-block;border-radius:10px;color:#e77728;text-decoration:none;margin-right:10px}
-.cont{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--text);text-decoration:none}
+body {
+    box-sizing: border-box;
+    padding: 7em;
+    max-width: 60em;
+    margin: 0;
+    font-family: IBM Plex Mono, monospace;
+    font-size: 15px;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    transition: background .25s, color .25s;
+}
 
-/* Styling section title */
-.section-title{padding:40px 16px 12px;text-align:center;font-size:22px}
 
-/* Setting grid structure for projects and styling individual cards */
-.projects .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding:0 16px 60px}
-.card{display:block;text-decoration:none;background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent);border-radius:12px;padding:18px;transition:transform .22s, box-shadow .22s; color:inherit; position:relative; overflow:hidden}
-.card:hover{transform:translateY(-6px);box-shadow:0 8px 30px rgba(2,6,23,0.12)}
-.card-inner{display:flex;align-items:center;justify-content:space-between}
-.card-title{margin:0 0 6px;font-size:18px}
-.card-sub{margin:0;color:var(--muted);font-size:13px}
-.card-arrow{opacity:.9;font-weight:700;transform:translateX(6px);transition:transform .2s}
-.card:hover .card-arrow{transform:translateX(12px)}
+/* Hero section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 16px;
+}
 
-/* Styling the contact form */
-.contact{max-width:720px;margin:0 auto;padding:20px}
-.contact-form label{display:block;margin:12px 0;color:var(--muted)}
-.contact-form input, .contact-form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:transparent;color:var(--text)}
-.form-row{margin-top:12px;display:flex;gap:10px;align-items:center}
+.title_and_description {
+    max-width: 920px;
+}
 
-/* Styling footer */
-.footer{padding:24px;text-align:center;position:relative;color:var(--muted);border-top:1px solid rgba(0,0,0,0.04)}
+.hero h1 {
+    font-size: 1em;
+    margin-bottom: 3em;
+    text-decoration: none;
+    color: #7c7c7a;
+}
 
-/* Responsiveness: changing some styles when screen size is less than or equal to 640px */
-@media (max-width:640px){ .nav{padding:12px} .hero{padding:40px 12px} }
+.hero p {
+   margin-bottom: 3em;
+}
+
+.lead {
+    margin: 0 0 12px;
+    color: var(--muted);
+}
+
+.desc {
+    max-width: 720px;
+    margin: 0 auto 20px;
+    color: var(--muted);
+}
+
+/* Accordion */
+.accordion {
+    margin-bottom: 10px;
+    border-radius: 10px;
+    color: #e77728;
+}
+
+/* Style the clickable summary */
+.accordion summary {
+    cursor: pointer;
+    list-style: none; /* hides default arrow */
+    font-weight: bold;
+    position: relative;
+    padding: 6px 0 6px 18px; /* left padding for +/– space */
+    user-select: none;
+}
+
+/* Remove default marker in WebKit browsers */
+.accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Add the + symbol on the left */
+.accordion summary::before {
+    content: "+";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease, content 0.3s ease;
+    display: inline-block;
+}
+
+/* Change + to – when open */
+.accordion[open] summary::before {
+    content: "–";
+}
+
+/* Optional: smooth content reveal */
+.accordion-content {
+    padding-left: 18px;
+    margin-top: 5px;
+    animation: fadeIn 0.3s ease;
+    color: var(--muted);
+}
+
+/* Optional fade animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-row {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Replaced .proj with a more structured project block */
+.project-item {
+  margin-bottom: 1.5em; /* Space between projects */
+  /* Remove last project's bottom margin */
+}
+
+.project-item:last-child {
+    margin-bottom: 0.5em;
+}
+
+.proj-title {
+  font-weight: bold;
+  color: var(--accent); /* Make the title pop */
+  text-decoration: none;
+  display: block; /* Make it block level */
+  margin-bottom: 0.25em;
+}
+
+.proj-title:hover {
+  text-decoration: underline;
+}
+
+.proj-desc {
+  margin: 0 0 0 1em; /* Reset default p margin and indent */
+  font-size: 0.95em;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Add styling for inline code */
+.proj-desc code {
+  color: var(--text);
+  background-color: #333;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Footer */
+.footer {
+    padding: 6px 0 6px 18px;
+    display: flex;
+    gap: 0;
+    padding-top: 1em;
+    margin-top: 1em;
+    text-align: left;
+    position: relative;
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 25%;
+    border-top: 1px solid #7c7c7a;
+}
+
+.footer a {
+    color: #e77728;
+}
+
+.footer a:first-child::after {
+  color: #7c7c7a;
+  content: ",";
+  margin-left: -1px;  /* overlaps the gap slightly */
+  margin-right: 6px;  /* space after comma */
+}
+
+/* Responsiveness */
+@media (max-width: 640px) {
+    .nav {
+        padding: 12px;
+    }
+
+    .hero {
+        padding: 15px 12px;
+    }
+}
