@@ -19,7 +19,7 @@ html, body {
 body {
     box-sizing: border-box;
     padding: 7em;
-    max-width: 60em;
+    max-width: 50em;
     margin: 0;
     font-family: IBM Plex Mono, monospace;
     font-size: 15px;
@@ -29,8 +29,6 @@ body {
     transition: background .25s, color .25s;
 }
 
-
-/* Hero section */
 .hero {
     display: flex;
     flex-direction: column;
@@ -44,13 +42,9 @@ body {
 
 .hero h1 {
     font-size: 1em;
-    margin-bottom: 3em;
+    margin-bottom: 1.5em;
     text-decoration: none;
     color: #7c7c7a;
-}
-
-.hero p {
-   margin-bottom: 3em;
 }
 
 .lead {
@@ -58,9 +52,15 @@ body {
     color: var(--muted);
 }
 
-.desc {
+.desc-title {
     max-width: 720px;
-    margin: 0 auto 20px;
+    margin: 0 0 1.5em 0;
+    color: var(--muted);
+}
+
+.desc-summary {
+    max-width: 720px;
+    margin: 0 0 3em 0;
     color: var(--muted);
 }
 
@@ -165,7 +165,7 @@ body {
 
 /* Make the feature list pop with the main text color */
 .proj-desc ul {
-    margin-top: 1em; /* Increased from 0.75em for more space */
+    margin-top: 1em;
     margin-bottom: 0;
     padding-left: 1.5em;
     line-height: 1.6;
@@ -190,33 +190,42 @@ body {
 }
 
 .footer {
-    padding: 6px 0 6px 18px;
-    display: flex;
-    gap: 0;
-    padding-top: 1em;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 1em;
+    padding: 1em 18px 1em 18px;
+    display: flex;
     text-align: left;
     position: relative;
-    border-top: 1px solid rgba(0, 0, 0, 0.04);
 }
 
+/* This block will create the line */
 .footer::before {
     content: "";
     position: absolute;
     top: 0;
-    width: 25%;
+    left: 18px;
+    right: 18px;
+
+    /* This draws the line */
     border-top: 1px solid #7c7c7a;
 }
 
 .footer a {
     color: #e77728;
+    text-decoration: none;
 }
 
-.footer a:first-child::after {
-  color: #7c7c7a;
-  content: ",";
-  margin-left: -1px;  /* overlaps the gap slightly */
-  margin-right: 6px;  /* space after comma */
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer a:not(:last-child)::after {
+    content: "|";
+    color: #7c7c7a;
+    margin-left: 10px;  /* Space before pipe */
+    margin-right: 10px; /* Space after pipe */
 }
 
 /* Responsiveness */
