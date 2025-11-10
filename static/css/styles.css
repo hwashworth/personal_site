@@ -64,7 +64,6 @@ body {
     color: var(--muted);
 }
 
-/* Accordion */
 .accordion {
     margin-bottom: 10px;
     border-radius: 10px;
@@ -102,7 +101,6 @@ body {
     content: "–";
 }
 
-/* Optional: smooth content reveal */
 .accordion-content {
     padding-left: 18px;
     margin-top: 5px;
@@ -110,7 +108,6 @@ body {
     color: var(--muted);
 }
 
-/* Optional fade animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-5px); }
     to { opacity: 1; transform: translateY(0); }
@@ -123,45 +120,75 @@ body {
     align-items: center;
 }
 
-/* Replaced .proj with a more structured project block */
+/* Add padding and a bottom border to each project for separation */
 .project-item {
-  margin-bottom: 1.5em; /* Space between projects */
-  /* Remove last project's bottom margin */
+    margin-bottom: 1.5em;
+    padding-bottom: 1.5em;
+    border-bottom: 1px dashed #7c7c7a; /* Muted dashed line */
 }
 
+/* Remove the border and extra padding from the last project */
 .project-item:last-child {
     margin-bottom: 0.5em;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .proj-title {
-  font-weight: bold;
-  color: var(--accent); /* Make the title pop */
-  text-decoration: none;
-  display: block; /* Make it block level */
-  margin-bottom: 0.25em;
+    font-weight: bold;
+    color: #e77728; /* This is your orange */
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.25em;
 }
 
 .proj-title:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
+/* Keep the main <p> description muted */
 .proj-desc {
-  margin: 0 0 0 1em; /* Reset default p margin and indent */
-  font-size: 0.95em;
-  color: var(--muted);
-  line-height: 1.5;
+    margin: 0 0 0 1em;
+    font-size: 0.95em;
+    color: var(--muted);
+    line-height: 1.5;
 }
 
 /* Add styling for inline code */
 .proj-desc code {
-  color: var(--text);
-  background-color: #333;
-  padding: 0.2em 0.4em;
-  border-radius: 4px;
-  font-size: 0.9em;
+    color: var(--text);
+    background-color: #333;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
 }
 
-/* Footer */
+/* Make the feature list pop with the main text color */
+.proj-desc ul {
+    margin-top: 1em; /* Increased from 0.75em for more space */
+    margin-bottom: 0;
+    padding-left: 1.5em;
+    line-height: 1.6;
+    color: var(--text); /* Main text color */
+}
+
+.proj-desc li {
+    margin-bottom: 0.25em;
+    padding-left: 0.25em; /* Add a little space from the bullet */
+}
+
+/* Make the bullets match the orange accent color */
+.proj-desc li::marker {
+    color: #e77728;
+    font-weight: bold;
+}
+
+
+.proj-desc li b {
+    color: #e77728; /* Make keywords orange */
+    font-weight: 600; /* A little bolder */
+}
+
 .footer {
     padding: 6px 0 6px 18px;
     display: flex;
