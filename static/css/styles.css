@@ -228,12 +228,11 @@ body {
     margin-right: 10px; /* Space after pipe */
 }
 
-/* Responsiveness */
 @media (max-width: 640px) {
-    .nav {
-        padding: 12px;
+    /* This is your new rule */
+    body {
+        padding: 3em 1.5em; /* Reduces the large 7em padding for mobile */
     }
-
     .hero {
         padding: 15px 12px;
     }
